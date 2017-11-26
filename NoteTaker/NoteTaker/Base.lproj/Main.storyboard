@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ZI-9w-pko">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes-->
+        <scene sceneID="CQp-78-y2c">
+            <objects>
+                <tableViewController id="nxC-oM-PzU" customClass="NotesTableViewController" customModule="NoteTaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9I1-fr-yn8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" textLabel="hKx-Hd-hSa" style="IBUITableViewCellStyleDefault" id="iv4-gA-nv6">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iv4-gA-nv6" id="dD6-fd-cWm">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hKx-Hd-hSa">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="lS9-r7-D3p" kind="show" identifier="showNote" id="d7D-43-7vw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nxC-oM-PzU" id="MLh-Ag-gam"/>
+                            <outlet property="delegate" destination="nxC-oM-PzU" id="hwo-JB-fr4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notes" id="4of-Ih-bcj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dz9-KU-aam">
+                            <connections>
+                                <action selector="addNewTapped:" destination="nxC-oM-PzU" id="PUE-1R-2hS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="notesTableView" destination="9I1-fr-yn8" id="NqZ-D5-k4O"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zD6-Lp-oG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.60000000000002" y="73.313343328335833"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="krB-2V-CzO">
+            <objects>
+                <viewController id="lS9-r7-D3p" customClass="NoteViewController" customModule="NoteTaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bnq-Sk-cOK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your notes in here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-UQ-v8c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1fB-UQ-v8c" firstAttribute="top" secondItem="Umb-I3-9k0" secondAttribute="top" id="7iN-EF-egK"/>
+                            <constraint firstItem="Umb-I3-9k0" firstAttribute="trailing" secondItem="1fB-UQ-v8c" secondAttribute="trailing" id="CFf-ab-vd0"/>
+                            <constraint firstItem="Umb-I3-9k0" firstAttribute="bottom" secondItem="1fB-UQ-v8c" secondAttribute="bottom" id="bHZ-N1-hL1"/>
+                            <constraint firstItem="1fB-UQ-v8c" firstAttribute="leading" secondItem="Umb-I3-9k0" secondAttribute="leading" id="svv-Ds-riR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Umb-I3-9k0"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="G8x-va-RXm">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="vWq-Cd-4Hx">
+                            <connections>
+                                <action selector="saveTapped:" destination="lS9-r7-D3p" id="usL-bR-Iu0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="1fB-UQ-v8c" id="p4p-df-wnQ"/>
+                        <outlet property="titleNavigationItem" destination="G8x-va-RXm" id="QFt-TM-nf0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vz4-5J-Dui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="73"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="coF-JS-xYh">
+            <objects>
+                <navigationController id="6ZI-9w-pko" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UHf-MO-0Pi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nxC-oM-PzU" kind="relationship" relationship="rootViewController" id="PBN-PK-R2K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FvV-4P-jr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="74"/>
+        </scene>
+    </scenes>
+</document>
